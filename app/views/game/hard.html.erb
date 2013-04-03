@@ -1,0 +1,110 @@
+<br>
+<div class="container-fluid">
+  <div class="row-fluid">
+    	<div class="span9">
+    		<h1>The Math Puzzle Game</h1>
+    		<br>
+    		
+    		<div class='key' id="<%= @key %>"></div>
+
+        <table class="tile">
+            <tr>
+                <td class="tile-data" id='t1'><%= @game_array[0] %></td>
+                <td class="tile-data" id='t2'><%= @game_array[1] %></td>
+                <td class="tile-data" id='t3'><%= @game_array[2] %></td>
+            </tr>
+            <tr>
+                <td class="tile-data" id='t4'><%= @game_array[3] %></td>
+                <td class="tile-data" id='t5'><%= @game_array[4] %></td>
+                <td class="tile-data" id='t6'><%= @game_array[5] %></td>
+            </tr>
+            <tr>
+                <td class="tile-data" id='t7'><%= @game_array[6] %></td>
+                <td class="tile-data" id='t8'><%= @game_array[7] %></td>
+                <td class="tile-data" id='t9'><%= @game_array[8] %></td>
+            </tr>
+        </table>
+    		
+ 	  </div>
+ 	  <div class="span3">
+    	<br>
+    	<table class="tables">
+        	<tr><td>
+				<h3>One Solution</h3>
+				<p>
+					Each Rometica tile has only one correct combination! 
+					
+				</p>
+				<h3>Select Two</h3>
+				<p>
+					
+					Select two numbers from the Rometica tile that combine to make the sum
+					of another in order to solve the tile.
+				</p>
+				<h3>Play Again</h3>
+				<p>
+					Solving Rometica puzzles reveales hidden
+					relationships between the numbers.
+					Can you become a Rometica Master?
+					
+				</p>
+
+
+      		</td></tr>
+      	</table>
+      
+	</div>
+  </div>
+</div>
+<script>
+$('.tile-data').click(function() {
+	var $elem = $(this);
+	if ($elem.css('backgroundColor') == "rgb(157, 209, 190)")
+	{
+		$elem.css('backgroundColor', 'rgb(156, 181, 172)').addClass('selected');
+	}
+	else
+	{
+		$elem.css('backgroundColor', 'rgb(157, 209, 190)').removeClass('selected');
+	}
+	
+	/* Add up the selected tiles */
+	var sum = 0;
+	$('.selected').each(function()
+	{
+		sum = sum + parseInt($(this).text());
+	});
+	/*alert(sum); 
+	alert($('.key').attr('id'));
+	*/
+
+	if ($('.selected').length > 2)
+	{
+		$('.selected').each(function(){
+			$(this).css('backgroundColor', 'rgb(157, 209, 190)').removeClass('selected');
+		});
+	}
+
+	if ($('.selected').length == 2)
+	{
+		if (sum == parseInt($('.key').attr('id'))) 
+		{
+			/* protect selected from fade */
+			$('.selected').each(function(){
+				$(this).addClass('save').removeClass('tile-data');
+			});
+
+			/* protect the key from fade */
+			$('.tile-data').each(function(){
+				if (parseInt($(this).text()) == parseInt($('.key').attr('id')))
+				{
+					$(this).addClass('save').removeClass('tile-data');
+				}
+			});
+
+		    $('.tile-data').fadeTo(3000, 0.2);
+		    window.setTimeout('location.reload()', 5000); 
+		}
+	}
+});
+</script>
