@@ -14,13 +14,32 @@
 ActiveRecord::Schema.define(:version => 20130329133750) do
 
   create_table "tiles", :force => true do |t|
+    t.integer  "level"
+    t.integer  "t1"
+    t.integer  "t2"
+    t.integer  "t3"
+    t.integer  "t4"
+    t.integer  "t5"
+    t.integer  "t6"
+    t.integer  "t7"
+    t.integer  "t8"
+    t.integer  "t9"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "times", :force => true do |t|
+    t.integer  "level"
+    t.integer  "t1"
+    t.integer  "t2"
+    t.integer  "t3"
+    t.integer  "t4"
+    t.integer  "t5"
+    t.integer  "t6"
+    t.integer  "t7"
+    t.integer  "t8"
+    t.integer  "t9"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
 end

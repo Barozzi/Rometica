@@ -55,9 +55,9 @@ end
 
 def first_three()
 	three_numbers = []
-	three_numbers << rand(7..35)
+	three_numbers << (7..35).to_a.sample #rand(7..35)
 
-	three_numbers << rand(1..(three_numbers[0] - 1))
+	three_numbers << (1..(three_numbers[0] - 1)).to_a.sample #rand(1..(three_numbers[0] - 1))
 	three_numbers << three_numbers[0] - three_numbers[1]
 	return three_numbers
 end
@@ -69,7 +69,7 @@ def create_tiles
 		game_array = first_three
 
 		while(game_array.length < 9)
-			num = rand(1..35)
+			num = (1..35).to_a.sample #rand(1..35)
 
 			unless duplication?(num, game_array)
 				unless make_sum?(num, game_array)
@@ -157,9 +157,9 @@ end
 	# 	num - a random integer that passes constraints.
 #
 def add_wrong(high_bit, input_array)
-	num = rand(2..high_bit)
+	num = (2..high_bit).to_a.sample # rand(2..high_bit)
 	until good_wrong?(num, input_array)
-		num = rand(2..high_bit)
+		num = (2..high_bit).to_a.sample #rand(2..high_bit)
 	end
 	return num
 end

@@ -11,7 +11,7 @@ Rometica::Application.routes.draw do
 
   root :to => 'game#hard'
 
-  match "/easy" => redirect("/game/posts")
+  match "/easy" => redirect("/game/easy")
   match "/hard" => redirect("/game/hard")
   match "/times" => redirect("/game/times")
   match "/about" => redirect("/game/about")
