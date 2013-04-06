@@ -20,7 +20,7 @@ class GameController < ApplicationController
 	end
 
   def times
-  @tile = Times.find(1..Times.count).to_a.sample)  # rand(1..Times.count))
+  @tile = Times.find((1..Times.count).to_a.sample)  # rand(1..Times.count))
 	  	@game_array = [@tile.t1, @tile.t2, @tile.t3, 
 	  					@tile.t4, @tile.t5]
 
