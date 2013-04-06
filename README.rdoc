@@ -2,8 +2,8 @@
 
 
 === Why another math game?
-   Rometica is a whole learning project. The playability of the game allows my son to develop and hone his math skills. I wanted the game to be fun and replayable, and I feel that I have achieved that. In addition (eww, puns), I wanted to try my hand at developing a Ruby app using the Rails MVC framework. 
-   I feel that the game is a success on both fronts. Even though this is a small application, I was able to work my way into a comfort zone with the standard components of a Rails app and get a good feel for the conventions used in the layout, development, and deployment of a complete web app in Rails.
+Rometica is a whole learning project. The playability of the game allows my son to develop and hone his math skills. I wanted the game to be fun and replayable, and I feel that I have achieved that. In addition (eww, puns), I wanted to try my hand at developing a Ruby app using the Rails MVC framework. 
+I feel that the game is a success on both fronts. Even though this is a small application, I was able to work my way into a comfort zone with the standard components of a Rails app and get a good feel for the conventions used in the layout, development, and deployment of a complete web app in Rails.
 
 === How to Play: Arithmetic (Green Rometica)
 Select the two numbered tiles that, when added together, equal a third numbered tile. 
