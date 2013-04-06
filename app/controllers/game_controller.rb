@@ -1,6 +1,6 @@
 class GameController < ApplicationController
   def easy
-	  	@tile = Tile.find(rand(1..Tile.count))
+	  	@tile = Tile.find((1..Tile.count).to_a.sample)  #rand(1..Tile.count))
 	  	@game_array = [@tile.t1, @tile.t2, @tile.t3, 
 	  					@tile.t4, @tile.t5]
 
@@ -10,7 +10,7 @@ class GameController < ApplicationController
 	  
 
   def hard
-	  	@tile = Tile.find(rand(1..Tile.count))
+	  	@tile = Tile.find((1..Tile.count).to_a.sample)  # rand(1..Tile.count))
 	  	@game_array = [@tile.t1, @tile.t2, @tile.t3, 
 	  					@tile.t4, @tile.t5, @tile.t6,
 	  					@tile.t7, @tile.t8, @tile.t9]
@@ -20,7 +20,7 @@ class GameController < ApplicationController
 	end
 
   def times
-  @tile = Times.find(rand(1..Times.count))
+  @tile = Times.find(1..Times.count).to_a.sample)  # rand(1..Times.count))
 	  	@game_array = [@tile.t1, @tile.t2, @tile.t3, 
 	  					@tile.t4, @tile.t5]
 
