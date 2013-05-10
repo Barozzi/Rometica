@@ -1,0 +1,2 @@
+class TimesHardController < ApplicationController
+end

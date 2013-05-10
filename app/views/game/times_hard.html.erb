@@ -1,0 +1,110 @@
+<br>
+<div class="container-fluid">
+  <div class="row-fluid">
+    	<div class="span9">
+    		<h1>The Math Puzzle Game</h1>
+    		<br>
+    		
+
+<div class='key' id="<%= @key %>"></div>
+
+<table class="tile">
+	<tr>
+		<td class="easy-times" id='t1'><%= @game_array[0] %></td>
+		<td class="tile-data-times" id='t2'><%= @game_array[1] %></td>
+		<td class="easy-times" id='t3'><%= @game_array[2] %></td>
+	</tr>
+	<tr>
+		<td class="tile-data-times" id='t4'><%= @game_array[3] %></td>
+		<td class="tile-data-times" id='t5'><%= @game_array[4] %></td>
+		<td class="tile-data-times" id='t6'><%= @game_array[5] %></td>
+	</tr>
+	<tr>
+		<td class="easy-times" id='t7'><%= @game_array[6] %></td>
+		<td class="tile-data-times" id='t8'><%= @game_array[7] %></td>
+		<td class="easy-times" id='t9'><%= @game_array[8] %></td>
+	</tr>
+</table>
+</div>
+<div class="span3">
+    	<br>
+    	<table class="tables" id="times-window">
+        	<tr><td>
+				<h3>Multiplication</h3>
+				<p>
+					Multiply two numbers on each tile to match a third.
+				</p>
+				<h3>Select Two</h3>
+				<p>
+					Each Rometica tile has only one right combination! Select the two numbers that multiplied by each other equal a third.
+					
+				</p>
+				<h3>Master Times Table</h3>
+				<p>
+					Rometica Multiplication is a fun and easy way to master multiplication tables.
+				</p>
+
+
+      		</td></tr>
+      	</table>
+      
+	</div>
+  </div>
+</div>
+<script>
+<!--
+
+/* red colors from selected */
+
+$('.tile-data-times').click(function() {
+	var $elem = $(this);
+	if ($elem.css('backgroundColor') == "rgb(224, 47, 68)")
+	{
+		$elem.css('backgroundColor', 'rgb(181, 63, 77)').addClass('selected');
+	}
+	else
+	{
+		$elem.css('backgroundColor', 'rgb(224, 47, 68)').removeClass('selected');
+	}
+	
+	/* Multiply selected tiles */
+	var sum = 1;
+	$('.selected').each(function()
+	{
+		sum = sum * parseInt($(this).text());
+	});
+	
+
+	if ($('.selected').length > 2)
+	{
+		$('.selected').each(function(){
+			$(this).css('backgroundColor', 'rgb(224, 47, 68)').removeClass('selected');
+		});
+	}
+
+	if ($('.selected').length == 2)
+	{		if (sum == parseInt($('.key').attr('id'))) 
+		{
+			/* protect selected from fade */
+			$('.selected').each(function(){
+				$(this).addClass('save').addClass('times-table').removeClass('tile-data-times');
+			});
+
+			/* protect the key from fade */
+			$('.tile-data-times').each(function(){
+				if (parseInt($(this).text()) == parseInt($('.key').attr('id')))
+				{
+					$(this).css('backgroundColor', 'rgb(224,47,68)');
+					$(this).addClass('save').removeClass('tile-data-times');
+				}
+			});
+
+		    $('.tile-data-times').fadeTo(3000, 0.2);
+		    window.setTimeout('location.reload()', 5000); 
+		}
+	}
+});
+
+
+-->
+</script>

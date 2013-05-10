@@ -5,6 +5,8 @@ Rometica::Application.routes.draw do
 
   get "game/times"
 
+  get "game/times_hard"
+
   get "game/about"
 
   get "game/contact"
