@@ -7,7 +7,7 @@
     <link href="http://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet" type="text/css">
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
-
+    <script src="/assets/bootstrap-dropdown.js?body=1" type="text/javascript"></script>
     <%= csrf_meta_tags %>
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -32,12 +32,33 @@
           
            
           <nav>
-            <ul class="nav pull-right">
-              <li><%= link_to "Easy",    'easy' %></li>
-              <li><%= link_to "Hard",    'hard' %></li>
-              <li><%= link_to "Multiplication", 'times' %></li>
-            </ul>          
+            <ul class="nav nav-pills pull-right">
+              <li class="dropdown">
+                <a class="dropdown-toggle"
+                   data-toggle="dropdown"
+                   href="#">
+                    Addition
+                    <b class="caret"></b>
+                  </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Easy", 'easy'%></li>
+                  <li><%= link_to "Hard", 'hard' %></li>
+                </ul>    
+              </li>
 
+              <li class="dropdown">
+                <a class="dropdown-toggle"
+                   data-toggle="dropdown"
+                   href="#">
+                    Multiplication
+                    <b class="caret"></b>
+                  </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Easy", 'times'%></li>
+                  <li><%= link_to "Hard", 'times_hard' %></li>
+                </ul>    
+              </li>
+            </ul>
           </nav>
         
 

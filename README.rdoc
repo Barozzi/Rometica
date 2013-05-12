@@ -12,7 +12,11 @@ Select the two numbered tiles that, when added together, equal a third numbered 
 Select the two numbered tiles that, when multiplied together, equal a third numbered tile.
 
 === Under the Hood:
-Rometica uses database tables populated with arrays of randomly generated numbers that meet the constraints which allow each tile to have only one solution. When a game is loaded in the browser, a tile is selected at random and the order shuffled in order to enhance replayability. By pre-populating a table with acceptable numbered tuples, I was able to achieve a (very) significant performance over generating random lists of acceptable numbers on each page-load. Because of this, the most complicated code in this application resides in the seeds.rb file used to populate the DB.
+Rometica started by using database tables populated with arrays of numbers that mt with the constraints to allow each tile to have only one solution. When a game was loaded in the browser, a tile would be selected at random and the order shuffled in order to enhance replayability. By pre-populating a table with acceptable numbered tuples, I was able to achieve a (very) significant performance over generating random lists of acceptable numbers on each page-load. Because of this, the most complicated code in this application resides in the seeds.rb file used to populate the DB.
+
+After the initial successfull dploymnt, I installed the New Relic gem ad analyzed Romtica's performance. What I learned was that despite using a very simple query, database access made up most of the load time. I decided to make an improvement in performance by hard-coding the data into class methods associated with my models which effectivly eliminates DB access. The code to extract the data from the DB and format it can be found in the db_digger.rb.
+
+
 
 === Game Logic at runtime:
 It’s just basic arithmetic. The key to each tile is stored in the DOM and the numbered tiles the player chooses are added together and compared against the key by JQuery. 

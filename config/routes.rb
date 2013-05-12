@@ -18,6 +18,7 @@ Rometica::Application.routes.draw do
   match "/times" => redirect("/game/times")
   match "/about" => redirect("/game/about")
   match "/contact" => redirect("/game/contact")
+  match "/times_hard" => redirect("/game/times_hard")
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

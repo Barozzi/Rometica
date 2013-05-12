@@ -16,4 +16,14 @@ class GameControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test 'should have at least one solution' do 
+    get :hard
+    solution = false
+    permutation_array = @game_array.permutation
+    permutation_array.each do |array|
+     solution = true if @key == (array[0] + array[1])
+    end
+    solution.should eq(true)
+  end
+
 end
