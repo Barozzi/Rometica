@@ -7,7 +7,7 @@ gem 'bootstrap-sass', '2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-	# gem 'sqlite3', '1.3.5'
+   gem 'sqlite3', '1.3.5'
 
 group :test do
   gem 'rspec-rails'
@@ -15,9 +15,9 @@ end
 
 gem 'newrelic_rpm'
 
-# group :production do 
-	gem 'pg', '0.12.2'
-# end
+ #group :production do 
+	#gem 'pg', '0.12.2'
+ #end
 
 # Gems used only for assets and not required
 # in production environments by default.
