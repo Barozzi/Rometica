@@ -1,25 +1,14 @@
     	<div class="content">
     		<h1>The Math Puzzle Game</h1>
-    		<br>
-    		<div class='key' id="<%= @key %>"></div>
-
+      <div ng-app="myApp">
+    <div ng-controller="RometicaCtrl">
         <table class="tile">
-            <tr>
-                <td class="tile-data" id='t1'><%= @game_array[0] %></td>
-                <td class="tile-data" id='t2'><%= @game_array[1] %></td>
-                <td class="tile-data" id='t3'><%= @game_array[2] %></td>
-            </tr>
-            <tr>
-                <td class="tile-data" id='t4'><%= @game_array[3] %></td>
-                <td class="tile-data" id='t5'><%= @game_array[4] %></td>
-                <td class="tile-data" id='t6'><%= @game_array[5] %></td>
-            </tr>
-            <tr>
-                <td class="tile-data" id='t7'><%= @game_array[6] %></td>
-                <td class="tile-data" id='t8'><%= @game_array[7] %></td>
-                <td class="tile-data" id='t9'><%= @game_array[8] %></td>
-            </tr>
+          <tr ng-repeat="row in currentPane">
+            <td class="tile-data"  ng-repeat="cell in row track by $index" ng-class="{selected: selectedByUser}" data-ng-click="selectedByUser = toggleSelected()" >{{cell}}</td>
+          </tr>
         </table>
+  </div>
+</div>
 
  	  </div>
  	  <div class='description'>
